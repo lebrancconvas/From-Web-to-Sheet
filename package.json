@@ -1,0 +1,19 @@
+{
+    "name": "webpolicy",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/lebrancconvas/From-Web-to-Sheet.git",
+    "author": "lebrancconvas <lebrancconvas@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^17.0.33",
+        "ts-node": "^10.7.0"
+    },
+    "dependencies": {
+        "puppeteer": "^14.1.0"
+    },
+    "scripts": {
+        "start": "ts-node src/app.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}

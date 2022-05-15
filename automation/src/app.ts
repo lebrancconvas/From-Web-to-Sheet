@@ -1,13 +1,14 @@
 import puppeteer from 'puppeteer';
+import fs from 'fs';
 
 const app = async() => {
-	const browser = await puppeteer.launch({headless: true});
+	const browser = await puppeteer.launch({headless: false});
 	const page = await browser.newPage();
 
 	await page.goto('https://www.ddproperty.com/นโยบายความเป็นส่วนตัว');
 	await page.waitForTimeout(2000);
 
-	const selector = "article.article-detail";
+	const selector = "#wrapper-inner > div.static-cms-page > section:nth-child(2) > div > div > section > article";
 
 	await page.waitForSelector(selector);
 
@@ -18,7 +19,7 @@ const app = async() => {
 	await page.close();
 	await browser.close();
 
-	console.log(value);
+	fs.writeFileSync('./data/output.txt', value);
 };
 
 app();

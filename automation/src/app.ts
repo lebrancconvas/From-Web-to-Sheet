@@ -4,12 +4,12 @@ const app = async() => {
 	const browser = await puppeteer.launch({headless: true});
 	const page = await browser.newPage();
 
-	page.goto('https://www.ddproperty.com/นโยบายความเป็นส่วนตัว');
+	await page.goto('https://www.ddproperty.com/นโยบายความเป็นส่วนตัว');
 	await page.waitForTimeout(2000);
 
 	const selector = "article.article-detail";
 
-	await page.waitForSelector(".article-detail");
+	await page.waitForSelector(selector);
 
 	const element = await page.$(selector);
 

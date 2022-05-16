@@ -1,4 +1,5 @@
 from oauth2client.service_account import ServiceAccountCredentials
+from sheet_link import *
 import gspread
 
 
@@ -8,7 +9,7 @@ def get_sheet_data():
 	credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 	gc = gspread.authorize(credentials)
 
-	sheet = gc.open_by_url("https://docs.google.com/spreadsheets/d/15eJoqC8c6k1BkMXMU2epuuIE9dt4JblwRX96KgfNF0A/edit?usp=sharing")
+	sheet = gc.open_by_url(sheet_link)
 
 	worksheet = sheet.get_worksheet(0)
 
